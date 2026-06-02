@@ -56,21 +56,96 @@ Windows：
 python -m pip install -r requirements.txt
 ```
 
-## 运行程序
+## Mac 运行方式
 
-Mac：
+1. 安装 Python 3.10 或更新版本。
+2. 打开“终端”。
+3. 进入项目文件夹。
+4. 安装依赖。
+5. 启动程序。
+
+如果你是通过 Git 下载项目：
 
 ```bash
+git clone https://github.com/jhu7832-droid/local-ai-image-upscaler.git
+cd local-ai-image-upscaler
+python3 -m pip install -r requirements.txt
 python3 main.py
 ```
 
-Windows：
+如果你已经在项目文件夹里：
+
+```bash
+python3 -m pip install -r requirements.txt
+python3 main.py
+```
+
+运行后会自动打开本地网页：
+
+```bash
+http://127.0.0.1:7860
+```
+
+然后拖入图片，选择 2x / 4x 和处理模式，点击 `CREATE`。
+
+## Windows 运行方式
+
+1. 安装 Python 3.10 或更新版本。
+2. 安装 Python 时必须勾选 `Add python.exe to PATH`。
+3. 打开 PowerShell。
+4. 进入项目文件夹。
+5. 安装依赖。
+6. 启动程序。
+
+如果你是通过 Git 下载项目：
 
 ```powershell
+git clone https://github.com/jhu7832-droid/local-ai-image-upscaler.git
+cd local-ai-image-upscaler
+python -m pip install -r requirements.txt
 python main.py
 ```
 
-打开窗口后：
+如果你已经在项目文件夹里：
+
+```powershell
+python -m pip install -r requirements.txt
+python main.py
+```
+
+运行后会自动打开本地网页：
+
+```powershell
+http://127.0.0.1:7860
+```
+
+然后拖入图片，选择 2x / 4x 和处理模式，点击 `CREATE`。
+
+如果 PowerShell 提示找不到 `python`，可以尝试：
+
+```powershell
+py -m pip install -r requirements.txt
+py main.py
+```
+
+## iPhone / iPad 使用方式
+
+iPhone / iPad 可以访问项目网站和 GitHub 页面查看说明，但不能像 Mac / Windows 一样直接运行这个 Python 本地处理工具。
+
+推荐流程：
+
+1. 在 iPhone / iPad 上准备要处理的图片。
+2. 用 AirDrop、iCloud、微信文件传输、数据线等方式，把图片传到 Mac 或 Windows 电脑。
+3. 在电脑上运行本工具。
+4. 把图片拖到本地网页界面里。
+5. 选择 2x / 4x 和处理模式。
+6. 点击 `CREATE`。
+7. 在电脑的 `output` 文件夹中找到高清图。
+8. 把高清图传回 iPhone / iPad。
+
+这样仍然保持“图片在自己设备上处理”，不会上传到项目网站。
+
+## 打开工具后的操作
 
 1. 把图片拖到网页中的上传区域，或者点击选择单张 / 多张图片。
 2. 选择输出文件夹，默认是当前项目下的 `output`。
@@ -138,6 +213,14 @@ python main.py --input input --output output --scale 4 --mode fast
 ### 输出图片在哪里？
 
 默认在项目的 `output` 文件夹中。文件名会自动加后缀，例如 `example_upscale_4x.png`。
+
+### Windows 可以用吗？
+
+可以。Pillow、OpenCV、NumPy、FastAPI 和 Uvicorn 都支持 Windows。最常见的问题是安装 Python 时没有勾选 `Add python.exe to PATH`。
+
+### iPhone 可以直接处理图片吗？
+
+目前不建议。这个项目是 Python 本地桌面工具，最佳使用方式是在 Mac 或 Windows 电脑上处理图片。
 
 ### 会覆盖原图吗？
 
