@@ -254,7 +254,7 @@
     [data-lang="en"] { display: none; }
     body.en [data-lang="zh"] { display: none; }
     body.en [data-lang="en"] { display: initial; }
-    body.en div[data-lang="en"], body.en section[data-lang="en"], body.en p[data-lang="en"] { display: block; }
+    body.en div[data-lang="en"], body.en section[data-lang="en"], body.en p[data-lang="en"], body.en pre[data-lang="en"], body.en ol[data-lang="en"] { display: block; }
     @media (max-width: 800px) {
       .grid, .two, .comparison { grid-template-columns: 1fr; }
       .hero, .section { padding: 22px; }
@@ -302,6 +302,48 @@
         <span class="pill">iOS Guide</span>
         <span class="pill">MIT License</span>
       </div>
+    </section>
+
+    <section class="section">
+      <h2 data-lang="zh">下载与更新项目</h2>
+      <h2 data-lang="en">Download and Update</h2>
+      <p data-lang="zh">普通用户推荐下载 ZIP 压缩包。以后如果网站或程序更新，只需要重新下载最新版 ZIP，再按说明运行即可。</p>
+      <p data-lang="en">For most users, downloading the ZIP file is recommended. When the website or app is updated, download the latest ZIP again and run it with the guide.</p>
+      <div class="grid two">
+        <div class="mini">
+          <h3 data-lang="zh">方式一：下载 ZIP 压缩包</h3><h3 data-lang="en">Option 1: Download ZIP</h3>
+          <p data-lang="zh">最适合普通用户，不需要 Git 命令。下载后解压，进入文件夹安装依赖并运行。</p>
+          <p data-lang="en">Best for regular users. No Git command is needed. Download, unzip, install dependencies, and run.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://github.com/jhu7832-droid/local-ai-image-upscaler/archive/refs/heads/main.zip">
+              <span data-lang="zh">下载最新版 ZIP</span><span data-lang="en">Download Latest ZIP</span>
+            </a>
+          </div>
+          <pre data-lang="zh">1. 点击“下载最新版 ZIP”
+2. 解压压缩包
+3. 打开解压后的文件夹
+4. 按 Mac / Windows 运行方式启动程序</pre>
+          <pre data-lang="en">1. Click Download Latest ZIP
+2. Unzip the file
+3. Open the extracted folder
+4. Follow the Mac / Windows guide</pre>
+        </div>
+        <div class="mini">
+          <h3 data-lang="zh">方式二：GitHub 克隆更新</h3><h3 data-lang="en">Option 2: Clone with GitHub</h3>
+          <p data-lang="zh">适合会用 GitHub Desktop 或命令行的用户。以后更新时可以拉取最新代码。</p>
+          <p data-lang="en">For users who use GitHub Desktop or command line. Later updates can be pulled from GitHub.</p>
+          <div class="actions">
+            <a class="btn" href="https://github.com/jhu7832-droid/local-ai-image-upscaler" target="_blank" rel="noreferrer">
+              <span data-lang="zh">打开 GitHub 项目</span><span data-lang="en">Open GitHub Repo</span>
+            </a>
+          </div>
+          <pre>git clone https://github.com/jhu7832-droid/local-ai-image-upscaler.git
+cd local-ai-image-upscaler
+git pull</pre>
+        </div>
+      </div>
+      <p data-lang="zh">建议每次下载新版本时，先保留旧文件夹里的 output 图片，再解压新版，避免误删处理结果。</p>
+      <p data-lang="en">Before downloading a new version, keep your old output folder so processed images are not accidentally removed.</p>
     </section>
 
     <section class="section">

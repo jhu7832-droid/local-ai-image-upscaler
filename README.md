@@ -58,6 +58,45 @@ Windows：
 python -m pip install -r requirements.txt
 ```
 
+## 下载与更新项目
+
+普通用户推荐使用 ZIP 压缩包方式下载，不需要会 Git 命令。
+
+### 下载最新版 ZIP
+
+1. 打开项目网站或 GitHub 页面。
+2. 点击 `下载源码 ZIP`。
+3. 下载完成后，双击解压压缩包。
+4. 打开解压后的项目文件夹。
+5. 按下面的 Mac 或 Windows 运行方式启动程序。
+
+ZIP 下载地址：
+
+```text
+https://github.com/jhu7832-droid/local-ai-image-upscaler/archive/refs/heads/main.zip
+```
+
+### 以后如何更新？
+
+如果我更新了网站或程序，普通用户只需要重新下载最新版 ZIP，然后重新解压即可。
+
+注意：更新前建议先把旧文件夹里的 `output` 文件夹保存好，因为里面可能有你已经处理好的图片。
+
+### GitHub 克隆方式
+
+如果你会使用 GitHub Desktop 或 Git 命令，也可以用克隆方式：
+
+```bash
+git clone https://github.com/jhu7832-droid/local-ai-image-upscaler.git
+cd local-ai-image-upscaler
+```
+
+以后更新时，在项目文件夹里执行：
+
+```bash
+git pull
+```
+
 ## Mac 运行方式
 
 1. 安装 Python 3.10 或更新版本。
