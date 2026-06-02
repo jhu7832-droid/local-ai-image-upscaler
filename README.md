@@ -1,5 +1,7 @@
 # 本地图片高清放大工具
 
+当前版本：`v0.1.0`
+
 这是一个本地运行的图片放大和锐化小工具，适合处理 ChatGPT / AI 生成图、产品图、设计图、规格书图片和线稿图。程序不会上传图片，不调用付费 API。
 
 ## 功能
@@ -221,6 +223,21 @@ python main.py --input input --output output --scale 4 --mode fast
 ### iPhone 可以直接处理图片吗？
 
 目前不建议。这个项目是 Python 本地桌面工具，最佳使用方式是在 Mac 或 Windows 电脑上处理图片。
+
+## 网站信息反馈
+
+Netlify 网站底部已经加入“信息反馈”表单，用户可以填写邮箱和问题描述。
+
+反馈会进入 Netlify Forms 后台。要让站长邮箱收到通知，请在 Netlify 后台设置一次：
+
+1. 打开 Netlify 项目 `local-ai-image-upscaler`。
+2. 进入 `Project configuration`。
+3. 打开 `Notifications`。
+4. 添加 `Email notification`。
+5. 收件邮箱填写你自己的接收邮箱。
+6. 保存后，用户提交反馈时就会发送邮件通知。
+
+即使没有开启邮件通知，也可以在 Netlify 的 `Forms` 页面查看用户提交内容。
 
 ### 会覆盖原图吗？
 

@@ -51,6 +51,16 @@
       font-weight: 800;
       letter-spacing: 0.2px;
     }
+    .brand small {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: #176d9f;
+      font-size: 12px;
+      vertical-align: middle;
+    }
     .lang {
       display: flex;
       gap: 8px;
@@ -196,6 +206,45 @@
       cursor: pointer;
       font-weight: 800;
     }
+    .feedback-form {
+      display: grid;
+      gap: 14px;
+      margin-top: 8px;
+    }
+    .field {
+      display: grid;
+      gap: 8px;
+      color: var(--ink);
+      font-weight: 800;
+    }
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(135, 169, 188, 0.38);
+      border-radius: 14px;
+      padding: 13px 14px;
+      background: rgba(255,255,255,0.78);
+      color: var(--ink);
+      font: inherit;
+      outline: none;
+    }
+    .field input:focus,
+    .field textarea:focus {
+      border-color: rgba(38, 141, 198, 0.72);
+      box-shadow: 0 0 0 4px rgba(56, 168, 232, 0.14);
+    }
+    .field textarea {
+      min-height: 132px;
+      resize: vertical;
+    }
+    .submit {
+      justify-self: start;
+      cursor: pointer;
+      min-width: 148px;
+    }
+    .hidden {
+      display: none;
+    }
     .foot {
       margin-top: 24px;
       text-align: center;
@@ -217,7 +266,7 @@
   <main>
     <section class="hero">
       <div class="topbar">
-        <div class="brand">Local AI Image Upscaler</div>
+        <div class="brand">Local AI Image Upscaler <small>v0.1.0</small></div>
         <div class="lang" aria-label="Language">
           <button id="zhBtn" class="active" type="button">中文</button>
           <button id="enBtn" type="button">English</button>
@@ -441,6 +490,36 @@ python main.py</pre>
       </details>
     </section>
 
+    <section class="section">
+      <h2 data-lang="zh">信息反馈</h2>
+      <h2 data-lang="en">Feedback</h2>
+      <p data-lang="zh">如果你在安装、运行、图片处理或网页说明中遇到问题，可以在这里留下邮箱和问题描述。</p>
+      <p data-lang="en">If you run into issues with installation, running the app, image processing, or the website guide, leave your email and message here.</p>
+      <form class="feedback-form" name="feedback" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="feedback" />
+        <input type="hidden" name="subject" value="Local AI Image Upscaler 用户反馈" />
+        <p class="hidden">
+          <label>Do not fill this out: <input name="bot-field" /></label>
+        </p>
+        <label class="field">
+          <span data-lang="zh">你的邮箱</span>
+          <span data-lang="en">Your email</span>
+          <input type="email" name="email" required placeholder="you@example.com" autocomplete="email" />
+        </label>
+        <label class="field">
+          <span data-lang="zh">反馈问题</span>
+          <span data-lang="en">Message</span>
+          <textarea id="feedbackMessage" name="message" required placeholder="请尽量写清楚：电脑系统、运行到哪一步、看到什么错误、想处理什么图片。"></textarea>
+        </label>
+        <button class="btn primary submit" type="submit">
+          <span data-lang="zh">提交反馈</span>
+          <span data-lang="en">Send Feedback</span>
+        </button>
+      </form>
+      <p data-lang="zh">提交后，反馈会进入 Netlify Forms。站长可以在 Netlify 后台查看，并按需开启邮件通知。</p>
+      <p data-lang="en">After submission, the message is collected by Netlify Forms. The site owner can view it in Netlify and enable email notifications if needed.</p>
+    </section>
+
     <p class="foot">
       <span data-lang="zh">版本 v0.1.0 · MIT License · Python 本地应用</span>
       <span data-lang="en">Version v0.1.0 · MIT License · Local Python app</span>
@@ -450,11 +529,15 @@ python main.py</pre>
   <script>
     const zhBtn = document.getElementById("zhBtn");
     const enBtn = document.getElementById("enBtn");
+    const feedbackMessage = document.getElementById("feedbackMessage");
     function setLang(lang) {
       document.body.classList.toggle("en", lang === "en");
       zhBtn.classList.toggle("active", lang === "zh");
       enBtn.classList.toggle("active", lang === "en");
       document.documentElement.lang = lang === "en" ? "en" : "zh-CN";
+      feedbackMessage.placeholder = lang === "en"
+        ? "Please include your system, the step where it failed, any error text, and what kind of image you were processing."
+        : "请尽量写清楚：电脑系统、运行到哪一步、看到什么错误、想处理什么图片。";
     }
     zhBtn.addEventListener("click", () => setLang("zh"));
     enBtn.addEventListener("click", () => setLang("en"));
