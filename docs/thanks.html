@@ -6,10 +6,13 @@
   <title>反馈已提交</title>
   <style>
     :root {
-      --ink: #20313c;
-      --muted: #617583;
-      --blue: #268dc6;
-      --panel: rgba(255, 255, 255, 0.76);
+      --bg: #f4f8f9;
+      --surface: #ffffff;
+      --ink: #13262d;
+      --muted: #4c646c;
+      --line: rgba(24, 72, 84, 0.16);
+      --accent: #044d5d;
+      --radius: 16px;
     }
     * { box-sizing: border-box; }
     body {
@@ -18,50 +21,52 @@
       display: grid;
       place-items: center;
       padding: 24px;
-      font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-family: Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at 20% 18%, rgba(56, 168, 232, 0.22), transparent 28%),
-        linear-gradient(135deg, #eaf4f8 0%, #f7fbfd 58%, #edf6fb 100%);
+        radial-gradient(circle at 8% 4%, rgba(8, 112, 130, 0.14), transparent 28rem),
+        linear-gradient(180deg, #f7fbfc 0%, var(--bg) 100%);
     }
     .panel {
       width: min(680px, 100%);
-      padding: 34px;
-      border: 1px solid rgba(120, 160, 184, 0.34);
-      border-radius: 24px;
-      background: var(--panel);
-      box-shadow: 0 24px 74px rgba(44, 90, 119, 0.14);
-      backdrop-filter: blur(18px);
+      padding: clamp(28px, 5vw, 48px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.86);
     }
     h1 {
       margin: 0 0 14px;
-      font-size: 34px;
+      font-size: clamp(34px, 6vw, 54px);
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
     }
     p {
-      margin: 0 0 18px;
+      margin: 0 0 22px;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.72;
+      max-width: 58ch;
     }
     a {
       display: inline-flex;
-      min-height: 46px;
+      min-height: 48px;
       align-items: center;
       justify-content: center;
-      padding: 0 18px;
+      padding: 0 20px;
       border-radius: 999px;
       color: #fff;
-      background: linear-gradient(135deg, #38a8e8, #237db1);
-      font-weight: 800;
+      background: var(--accent);
+      font-weight: 850;
       text-decoration: none;
-      box-shadow: 0 12px 28px rgba(56, 168, 232, 0.24);
     }
+    a:active { transform: translateY(1px) scale(.99); }
   </style>
 </head>
 <body>
   <main class="panel">
     <h1>反馈已提交</h1>
-    <p>谢谢你的反馈。站长可以在 Netlify Forms 后台查看这条信息；如果已开启邮件通知，也会发送到设置的邮箱。</p>
-    <p>Thank you. The site owner can view this message in Netlify Forms, and receive an email when form notifications are enabled.</p>
+    <p>谢谢你的反馈。站长可以在 Netlify Forms 后台查看这条信息。</p>
+    <p>Thank you. The site owner can view this message in Netlify Forms.</p>
     <a href="/">返回首页 / Back Home</a>
   </main>
 </body>
